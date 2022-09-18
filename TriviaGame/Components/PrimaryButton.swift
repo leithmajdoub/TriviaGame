@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PrimaryButton: View {
     var text: String
-    var background: Color = Color(.magenta)
+    var background: Color = Color(.purple)
     
     var body: some View {
         Text(text)
@@ -18,6 +18,7 @@ struct PrimaryButton: View {
             .padding()
             .background(background)
             .cornerRadius(20)
+            .shadow(radius: 9)
     }
 }
 
