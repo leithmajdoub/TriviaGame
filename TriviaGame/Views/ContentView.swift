@@ -13,13 +13,20 @@ struct ContentView: View {
             RadialGradient(colors: [.white, .yellow], center: .center, startRadius: 0, endRadius: 500)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 20){
-                Text("Trivia Game")
-                    .lilacTitle()
+            VStack(spacing: 40){
+                VStack(spacing: 20){
+                    Text("Trivia Game")
+                        .lilacTitle()
+                    
+                    Text("Are you ready to test out your trivia skills ?")
+                        .foregroundColor(.purple)
+                    
+                }
                 
-                Text("Are you ready to test out your trivia skills ?")
-                    .foregroundColor(.purple)
+                PrimaryButton(text: "I'm ready to rumble ⚡️")
+                
             }
+            
         }
         
     }

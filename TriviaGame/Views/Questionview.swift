@@ -31,13 +31,18 @@ struct QuestionView: View {
                 
                 VStack(alignment: .leading, spacing: 20){
                     
-                    Text("What's the capital of australia ?")
+                    Text("A defibrillator is used to start up a heartbeat once a heart has stopped beating.")
                         .font(.system(size: 20))
                         .bold()
                         .foregroundColor(.gray)
+                    
+                    AnswerRow(answer: Answer(text: "false", isCorrect: true))
+                    AnswerRow(answer: Answer(text: "true", isCorrect: false))
                 }
                 
+                PrimaryButton(text: "Next")
             }
+            .padding()
             
             
         }
