@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct QuestionView: View {
+    @EnvironmentObject var triviaManager: TriviaManager
     var body: some View {
         ZStack {
             RadialGradient(colors: [.white, .yellow], center: .center, startRadius: 0, endRadius: 500)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 40){
+            VStack(spacing: triviaManager.progress){
                 HStack(spacing: 20){
                     Text("Trivia Game")
                         .lilacTitle()
                     
                     Spacer()
                     
-                    Text("1 out of 10")
+                    Text("\(triviaManager.index + 1) out of \(triviaManager.length + 1)")
                         .foregroundColor(.purple)
                     
                     
@@ -37,12 +38,15 @@ struct QuestionView: View {
                         .foregroundColor(.gray)
                     
                     AnswerRow(answer: Answer(text: "false", isCorrect: true))
+                        .environmentObject(triviaManager)
                     AnswerRow(answer: Answer(text: "true", isCorrect: false))
+                        .environmentObject(triviaManager)
                 }
                 
                 PrimaryButton(text: "Next")
             }
             .padding()
+            .navigationBarBackButtonHidden(true)
             
             
         }
@@ -52,5 +56,6 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionView()
+            .environmentObject(TriviaManager())
     }
 }
